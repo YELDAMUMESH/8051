@@ -1,0 +1,179 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/19/2023  08:49:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE countLCD.obj TO countLCD
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  countLCD.obj (COUNTLCD)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  countLCD (COUNTLCD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00A4H     UNIT         ?C?LIB_CODE
+            CODE    08A4H     0071H     UNIT         ?PR?MAIN?COUNTLCD
+            CODE    0915H     0026H     UNIT         ?PR?_DELAY?COUNTLCD
+            CODE    093BH     0023H     UNIT         ?PR?_LCDPRINT?COUNTLCD
+            CODE    095EH     0017H     UNIT         ?PR?_LCDCMD?COUNTLCD
+            CODE    0975H     0017H     UNIT         ?PR?_LCDDATA?COUNTLCD
+            CODE    098CH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0998H     0008H     UNIT         ?CO?COUNTLCD
+
+
+
+OVERLAY MAP OF MODULE:   countLCD (COUNTLCD)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?COUNTLCD
+
+?PR?MAIN?COUNTLCD              0008H    0002H
+  +--> ?PR?_LCDCMD?COUNTLCD
+  +--> ?PR?_DELAY?COUNTLCD
+  +--> ?CO?COUNTLCD
+  +--> ?PR?_LCDPRINT?COUNTLCD
+  +--> ?PR?_LCDDATA?COUNTLCD
+
+?PR?_LCDPRINT?COUNTLCD         000AH    0003H
+  +--> ?PR?_LCDDATA?COUNTLCD
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/19/2023  08:49:47  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  countLCD (COUNTLCD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        COUNTLCD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0915H         PUBLIC        _delay
+  C:08A4H         PUBLIC        main
+  C:0975H         PUBLIC        _lcddata
+  B:00B0H.7       PUBLIC        en
+  C:093BH         PUBLIC        _lcdprint
+  B:00B0H.6       PUBLIC        rs
+  C:095EH         PUBLIC        _lcdcmd
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        count
+  -------         ENDDO         
+  C:08A4H         LINE#         11
+  C:08A4H         LINE#         12
+  C:08A4H         LINE#         14
+  C:08A9H         LINE#         15
+  C:08AEH         LINE#         16
+  C:08B3H         LINE#         17
+  C:08B8H         LINE#         18
+  C:08BDH         LINE#         20
+  C:08C4H         LINE#         21
+  C:08C9H         LINE#         22
+  C:08D2H         LINE#         23
+  C:08D7H         LINE#         24
+  C:08D7H         LINE#         25
+  C:08DCH         LINE#         26
+  C:08EEH         LINE#         27
+  C:0900H         LINE#         28
+  C:0913H         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCDPRINT
+  D:000AH         SYMBOL        c
+  C:093BH         LINE#         32
+  C:0941H         LINE#         33
+  C:0941H         LINE#         34
+  C:094DH         LINE#         35
+  C:094DH         LINE#         36
+  C:0950H         LINE#         37
+  C:095BH         LINE#         38
+  C:095DH         LINE#         39
+  -------         ENDPROC       _LCDPRINT
+  -------         PROC          _LCDCMD
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/19/2023  08:49:47  PAGE 3
+
+
+  C:095EH         LINE#         50
+  C:095EH         LINE#         51
+  C:095EH         LINE#         53
+  C:0960H         LINE#         54
+  C:0962H         LINE#         55
+  C:0964H         LINE#         56
+  C:0967H         LINE#         57
+  C:0974H         LINE#         58
+  -------         ENDPROC       _LCDCMD
+  -------         PROC          _LCDDATA
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0975H         LINE#         60
+  C:0975H         LINE#         61
+  C:0975H         LINE#         63
+  C:0977H         LINE#         64
+  C:0979H         LINE#         65
+  C:097BH         LINE#         66
+  C:097EH         LINE#         67
+  C:098BH         LINE#         68
+  -------         ENDPROC       _LCDDATA
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        k
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0915H         LINE#         71
+  C:0915H         LINE#         72
+  C:0915H         LINE#         74
+  C:0925H         LINE#         75
+  C:093AH         LINE#         76
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        COUNTLCD
+
+  -------         MODULE        ?C?CLDPTR
+  C:0800H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?SIDIV
+  C:0819H         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:084FH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00F0H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=0 code=419
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,144 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/18/2023  08:30:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE strLCD.obj TO strLCD
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  strLCD.obj (STRLCD)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  strLCD (STRLCD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0032H     UNIT         ?PR?MAIN?STRLCD
+            CODE    0832H     0023H     UNIT         ?PR?_LCDPRINT?STRLCD
+            CODE    0855H     0019H     UNIT         ?CO?STRLCD
+            CODE    086EH     0019H     UNIT         ?C?LIB_CODE
+            CODE    0887H     0017H     UNIT         ?PR?_LCDCMD?STRLCD
+            CODE    089EH     0017H     UNIT         ?PR?_LCDDATA?STRLCD
+            CODE    08B5H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   strLCD (STRLCD)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?STRLCD
+
+?PR?MAIN?STRLCD                -----    -----
+  +--> ?PR?_LCDCMD?STRLCD
+  +--> ?CO?STRLCD
+  +--> ?PR?_LCDPRINT?STRLCD
+
+?PR?_LCDPRINT?STRLCD           0008H    0003H
+  +--> ?PR?_LCDDATA?STRLCD
+
+
+
+SYMBOL TABLE OF MODULE:  strLCD (STRLCD)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/18/2023  08:30:16  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        STRLCD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        main
+  C:089EH         PUBLIC        _lcddata
+  B:00B0H.7       PUBLIC        en
+  C:0832H         PUBLIC        _lcdprint
+  B:00B0H.6       PUBLIC        rs
+  C:0887H         PUBLIC        _lcdcmd
+  -------         PROC          MAIN
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0800H         LINE#         13
+  C:0805H         LINE#         14
+  C:080AH         LINE#         15
+  C:080FH         LINE#         16
+  C:0814H         LINE#         17
+  C:0819H         LINE#         19
+  C:0822H         LINE#         20
+  C:0827H         LINE#         21
+  C:0830H         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCDPRINT
+  D:0008H         SYMBOL        c
+  C:0832H         LINE#         24
+  C:0838H         LINE#         25
+  C:0838H         LINE#         26
+  C:0844H         LINE#         27
+  C:0844H         LINE#         28
+  C:0847H         LINE#         29
+  C:0852H         LINE#         30
+  C:0854H         LINE#         31
+  -------         ENDPROC       _LCDPRINT
+  -------         PROC          _LCDCMD
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0887H         LINE#         33
+  C:0887H         LINE#         34
+  C:0887H         LINE#         36
+  C:0889H         LINE#         37
+  C:088BH         LINE#         38
+  C:088DH         LINE#         39
+  C:0890H         LINE#         40
+  C:089DH         LINE#         41
+  -------         ENDPROC       _LCDCMD
+  -------         PROC          _LCDDATA
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:089EH         LINE#         43
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/18/2023  08:30:16  PAGE 3
+
+
+  C:089EH         LINE#         44
+  C:089EH         LINE#         46
+  C:08A0H         LINE#         47
+  C:08A2H         LINE#         48
+  C:08A4H         LINE#         49
+  C:08A7H         LINE#         50
+  C:08B4H         LINE#         51
+  -------         ENDPROC       _LCDDATA
+  -------         ENDMOD        STRLCD
+
+  -------         MODULE        ?C?CLDPTR
+  C:086EH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 009CH BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=196
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

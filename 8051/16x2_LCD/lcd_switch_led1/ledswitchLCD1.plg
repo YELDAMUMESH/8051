@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Keil\C51\Examples\HELLO\ledswitchLCD1.uvproj
+Project File Date:  12/20/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+Target has no object modules
+Target not created
+Build target 'Target 1'
+compiling lcdmain.c...
+lcdheader.h(22): warning C275: expression with possibly no effect
+lcdmain.c(16): warning C290: missing return value
+lcdmain.c(24): warning C290: missing return value
+lcdmain.c(34): warning C290: missing return value
+lcdmain.c(43): warning C290: missing return value
+lcdmain.c(50): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?LCDMAIN
+Program Size: data=12.4 xdata=0 code=447
+"ledswitchLCD1" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?LCDMAIN
+Program Size: data=12.4 xdata=0 code=447
+creating hex file from "ledswitchLCD1"...
+"ledswitchLCD1" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling lcdmain.c...
+lcdheader.h(22): warning C275: expression with possibly no effect
+lcdmain.c(16): warning C290: missing return value
+lcdmain.c(24): warning C290: missing return value
+lcdmain.c(34): warning C290: missing return value
+lcdmain.c(43): warning C290: missing return value
+lcdmain.c(50): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?LCDMAIN
+Program Size: data=12.4 xdata=0 code=447
+creating hex file from "ledswitchLCD1"...
+"ledswitchLCD1" - 0 Error(s), 7 Warning(s).

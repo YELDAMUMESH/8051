@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Keil\C51\Examples\HELLO\timersA.uvproj
+Project File Date:  01/03/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling timersA.c...
+linking...
+Program Size: data=9.0 xdata=0 code=36
+"timersA" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=36
+creating hex file from "timersA"...
+"timersA" - 0 Error(s), 0 Warning(s).

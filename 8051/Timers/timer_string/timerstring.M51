@@ -1,0 +1,104 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/03/2024  09:52:58  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE timerstring.obj TO timerstring
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  timerstring.obj (TIMERSTRING)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  timerstring (TIMERSTRING)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0019H     UNIT         ?C?LIB_CODE
+            CODE    0819H     0017H     UNIT         ?PR?_SERIALPRINT?TIMERSTRING
+            CODE    0830H     0014H     UNIT         ?PR?MAIN?TIMERSTRING
+            CODE    0844H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0850H     0006H     UNIT         ?CO?TIMERSTRING
+
+
+
+OVERLAY MAP OF MODULE:   timerstring (TIMERSTRING)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TIMERSTRING
+
+?PR?MAIN?TIMERSTRING
+  +--> ?CO?TIMERSTRING
+  +--> ?PR?_SERIALPRINT?TIMERSTRING
+
+
+
+SYMBOL TABLE OF MODULE:  timerstring (TIMERSTRING)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TIMERSTRING
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0098H.1       PUBLIC        TI
+  C:0830H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/03/2024  09:52:58  PAGE 2
+
+
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  C:0819H         PUBLIC        _serialprint
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          MAIN
+  C:0830H         LINE#         3
+  C:0830H         LINE#         4
+  C:0830H         LINE#         5
+  C:0833H         LINE#         6
+  C:0836H         LINE#         7
+  C:0839H         LINE#         8
+  C:083BH         LINE#         9
+  -------         ENDPROC       MAIN
+  -------         PROC          _SERIALPRINT
+  D:0001H         SYMBOL        str
+  C:0819H         LINE#         11
+  C:0819H         LINE#         12
+  C:0819H         LINE#         13
+  C:081FH         LINE#         14
+  C:081FH         LINE#         15
+  C:0821H         LINE#         16
+  C:0824H         LINE#         17
+  C:0826H         LINE#         18
+  C:082DH         LINE#         19
+  C:082FH         LINE#         20
+  -------         ENDPROC       _SERIALPRINT
+  -------         ENDMOD        TIMERSTRING
+
+  -------         MODULE        ?C?CLDPTR
+  C:0800H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0031H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=89
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

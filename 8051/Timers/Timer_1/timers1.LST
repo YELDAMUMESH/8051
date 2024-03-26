@@ -1,0 +1,34 @@
+C51 COMPILER V9.52.0.0   TIMERS1                                                           12/28/2023 08:47:06 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMERS1
+OBJECT MODULE PLACED IN timers1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timers1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          int main()
+   3          {
+   4   1        TMOD=0x10;
+   5   1        TH1=0x3C;
+   6   1        TL1=0xAF;
+   7   1        TR1=1;
+   8   1        while(TF1==0);
+   9   1        TF1=0;
+  10   1      }
+*** WARNING C290 IN LINE 10 OF timers1.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

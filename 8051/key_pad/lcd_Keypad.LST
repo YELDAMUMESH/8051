@@ -1,0 +1,74 @@
+C51 COMPILER V9.52.0.0   LCD_KEYPAD                                                        12/20/2023 15:09:56 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD_KEYPAD
+OBJECT MODULE PLACED IN lcd_Keypad.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lcd_Keypad.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include "lcdheader.h"
+*** WARNING C275 IN LINE 22 OF lcdheader.h: expression with possibly no effect
+   3          
+   4          sbit r0 = P1^0;
+   5          sbit r1 = P1^1;
+   6          sbit r2 = P1^2;
+   7          sbit r3 = P1^3;
+   8          
+   9          sbit c0 = P1^4;
+  10          sbit c1 = P1^5;
+  11          sbit c2 = P1^6;
+  12          sbit c3 = P1^7;
+  13          
+  14          char keypad[4][4] = {'F','B','7','3',  'E','A','6','2',   'D','9','5','1',  'C','8','4','0'};
+  15          void main()
+  16          {
+  17   1        int i,j;
+  18   1        lcdinit();
+  19   1        lcdcmd(0x80);
+  20   1        lcdprint("KeypadTest :");
+  21   1        while(1)
+  22   1        {
+  23   2        r0 = r1 = r2 = r3 = 1;
+  24   2        c0 = c1 = c2 = c3 = 0;
+  25   2        while(r0 == 1 && r1 == 1 && r2 == 1 && r3 == 1);
+  26   2        if(r0 == 0) i=0;
+  27   2        if(r1 == 0) i=1;
+  28   2        if(r2 == 0) i=2;
+  29   2        if(r3 == 0) i=3;
+  30   2        
+  31   2        r0 = r1 = r2 = r3 = 0;
+  32   2        c0 = c1 = c2 = c3 = 1;
+  33   2        while(c0 == 1 && c1 == 1 && c2 == 1 && c3 == 1);
+  34   2        if(c0 == 0) j=0;
+  35   2        if(c1 == 0) j=1;
+  36   2        if(c2 == 0) j=2;
+  37   2        if(c3 == 0) j=3;
+  38   2        
+  39   2          lcdcmd(0xC0);
+  40   2          lcddata(keypad[i][j]);
+  41   2        }
+  42   1        
+  43   1      }
+*** WARNING C290 IN LINE 16 OF lcd_Keypad.c: missing return value
+*** WARNING C290 IN LINE 24 OF lcd_Keypad.c: missing return value
+*** WARNING C290 IN LINE 34 OF lcd_Keypad.c: missing return value
+*** WARNING C290 IN LINE 43 OF lcd_Keypad.c: missing return value
+*** WARNING C290 IN LINE 50 OF lcd_Keypad.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    311    ----
+   CONSTANT SIZE    =     13    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   LCD_KEYPAD                                                        12/20/2023 15:09:56 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  6 WARNING(S),  0 ERROR(S)

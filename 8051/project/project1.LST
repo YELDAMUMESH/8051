@@ -1,0 +1,95 @@
+C51 COMPILER V9.52.0.0   PROJECT1                                                          02/27/2024 13:00:03 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PROJECT1
+OBJECT MODULE PLACED IN project1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE project1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit rs = P1^0;
+   3          sbit en = P1^2;
+   4          sbit rw = P1^1;
+   5          sbit led = P1^6;
+   6          void lcdcmd(unsigned char);
+   7          void lcddata(unsigned char);
+   8          void lcddisplay(unsigned char *);
+   9          void delay();
+  10          void main()
+  11          {
+  12   1        P2=0X00;
+  13   1        while(1)
+  14   1        {
+  15   2          lcdcmd(0x38);//activate all crystals
+  16   2        lcdcmd(0x01);//clear screen
+  17   2        lcdcmd(0x06);//forward increment
+  18   2        lcdcmd(0x0c);//cursor on and blinking
+  19   2        lcddisplay("WELCOME");
+  20   2        lcdcmd(0x01);//clear screen
+  21   2        lcddisplay("ELECTRONIC VOTING...");
+  22   2        lcdcmd(0x01);//clear screen
+  23   2        lcdcmd(0x80);//shift cursor to the right position
+  24   2        lcddisplay("REGISTER FINGERPRINT");
+  25   2        lcdcmd(0x01);//clear screen
+  26   2        lcdcmd(0x80);//shift cursor to the right position
+  27   2        lcddisplay("REGISTRATION SUCESS");
+  28   2        lcdcmd(0x01);
+  29   2        lcdcmd(0x80);//shift cursor to the right position
+  30   2        lcddisplay("SELECT TO VOTE");
+  31   2        lcdcmd(0xc0);
+  32   2        lcdcmd(0x0c);
+  33   2        lcddisplay("PARTY     @        1");
+  34   2        lcdcmd(0x94);
+  35   2        lcddisplay("PARTY     #        2");
+  36   2        lcdcmd(0xd4);
+  37   2        lcddisplay("PARTY     $        3");
+  38   2      }
+  39   1      }
+  40          void lcddata(unsigned char dat)
+  41          {
+  42   1        P2 = dat;
+  43   1        rs = 1;
+  44   1        rw = 0;
+  45   1        en = 1;
+  46   1        delay();
+  47   1        en = 0;
+  48   1      }
+  49          void lcdcmd(unsigned char val)
+  50          {
+  51   1        P2 = val;
+  52   1        rs = 0;
+  53   1        rw=0;
+  54   1        en = 1;
+  55   1        delay();
+C51 COMPILER V9.52.0.0   PROJECT1                                                          02/27/2024 13:00:03 PAGE 2   
+
+  56   1        en = 0;
+  57   1      }
+  58          void lcddisplay(char *c)
+  59          {
+  60   1        while( *c!= '\0')
+  61   1        {
+  62   2          lcddata(*c);
+  63   2          c++;
+  64   2        }
+  65   1      }
+  66          void delay()
+  67          {
+  68   1        int i;
+  69   1        for(i=0;i<=10000;i++);
+  70   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    231    ----
+   CONSTANT SIZE    =    148    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

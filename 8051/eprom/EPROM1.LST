@@ -1,0 +1,95 @@
+C51 COMPILER V9.52.0.0   EPROM1                                                            01/31/2024 06:20:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE EPROM1
+OBJECT MODULE PLACED IN EPROM1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE EPROM1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<intrins.h> // supports nop function
+   3          sbit sda=P2^0;
+   4          sbit scl=P2^1;
+   5          void start();
+   6          void write(unsigned char);
+   7          void ackcheck();
+   8          void stop();
+   9          void main()
+  10          {
+  11   1        start();
+  12   1        write(0XA0);
+  13   1        ackcheck();
+  14   1        write(0X06); //ALL LED'S ON
+  15   1        ackcheck();
+  16   1        write('a'); //ALL LED'S OFF
+  17   1        ackcheck();
+  18   1        stop();
+  19   1        while(1);
+  20   1      }
+  21          //function defination
+  22          void start()
+  23          {
+  24   1        scl=1;
+  25   1        sda=1;
+  26   1        nop(); // no operation
+*** WARNING C206 IN LINE 26 OF EPROM1.c: 'nop': missing function-prototype
+  27   1        nop(); //uc takes 1 usec delay
+  28   1        sda=0;
+  29   1      }
+  30          
+  31          void write(unsigned char val)
+  32          {
+  33   1        unsigned char v1,v2;
+  34   1        v1=val;
+  35   1        for(v2=0;v2<8;v2++)
+  36   1        {
+  37   2          sda=v1&0x80;
+  38   2          scl=1;
+  39   2          nop(); // no operation
+  40   2          nop(); //uc takes 1 usec delay
+  41   2          scl=0;
+  42   2          v1=v1<<1; //left shift operation
+  43   2        }
+  44   1      }
+  45          
+  46          void ackcheck()
+  47          {
+  48   1        bit c;
+  49   1        sda=1;
+  50   1        c=sda;
+  51   1        scl=1;
+  52   1        nop(); // no operation
+  53   1        nop(); //uc takes 1 usec delay
+  54   1        scl=0;
+C51 COMPILER V9.52.0.0   EPROM1                                                            01/31/2024 06:20:40 PAGE 2   
+
+  55   1         if(c==1);
+  56   1        {
+  57   2          stop();
+  58   2          while(1); // holding compliation
+  59   2        }
+  60   1      }
+  61          
+  62          void stop()
+  63          {
+  64   1        scl=1;
+  65   1        sda=0;
+  66   1        nop(); // no operation
+  67   1        nop(); //uc takes 1 usec delay
+  68   1        scl=1;
+  69   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    115    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

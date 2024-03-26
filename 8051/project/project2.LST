@@ -1,0 +1,278 @@
+C51 COMPILER V9.52.0.0   PROJECT2                                                          02/23/2024 12:52:04 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PROJECT2
+OBJECT MODULE PLACED IN project2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE project2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<intrins.h>
+   3          sbit sda=P3^1;
+   4          sbit scl=P3^0;
+   5          //I2C BUS LINES
+   6          sbit rs = P1^0;
+   7          sbit en = P1^2;
+   8          sbit rw = P1^1;
+   9          //lcd ports
+  10          sbit s1 = P1^3;
+  11          sbit s2 = P1^4;
+  12          sbit s3 = P1^5;
+  13          sbit s4 = P1^7;
+  14          //switch ports
+  15          sbit led = P1^6;
+  16          //led port;
+  17          void start();
+  18          void stop();
+  19          void ackcheck();
+  20          void write(unsigned char);
+  21          void lcdcmd(unsigned char);
+  22          void lcddata(unsigned char);
+  23          void lcddisplay(unsigned char *);
+  24          void lcdconv(unsigned char);
+  25          void description();
+  26          void delay();
+  27          void main()
+  28          {
+  29   1        unsigned char x,y,z;
+  30   1        s1=s2=s3=s4=1;
+  31   1        led = 0;
+  32   1        P2=0X00;
+  33   1        description();
+  34   1        while(1)
+  35   1        {
+  36   2          if(s1==0)
+  37   2            {
+  38   3              led = 1;
+  39   3              lcdcmd(0x01);
+  40   3              lcdcmd(0x0c);
+  41   3              lcdcmd(0xc0);
+  42   3              lcddisplay("PARTY     @        1");
+  43   3              x=x+1;
+  44   3              led=0;
+  45   3              start();
+  46   3              write(0xA0);
+  47   3              ackcheck();
+  48   3              write(0x06);
+  49   3              ackcheck();
+  50   3              write(0x01);
+  51   3              ackcheck();
+  52   3              write(x);
+  53   3              ackcheck();
+  54   3              stop();
+  55   3              lcdcmd(0x01);
+C51 COMPILER V9.52.0.0   PROJECT2                                                          02/23/2024 12:52:04 PAGE 2   
+
+  56   3              lcdcmd(0x0c);
+  57   3              lcdcmd(0x80);
+  58   3              lcddisplay("THANK YOU");
+  59   3              description();
+  60   3            }
+  61   2          if(s2==0)
+  62   2            {
+  63   3              led = 1;
+  64   3              lcdcmd(0x01);
+  65   3              lcdcmd(0x0c);
+  66   3              lcdcmd(0x94);
+  67   3              lcddisplay("PARTY     #        2");
+  68   3              y=y+1;
+  69   3              led=0;
+  70   3              start();
+  71   3              write(0xA0);
+  72   3              ackcheck();
+  73   3              write(0x06);
+  74   3              ackcheck();
+  75   3              write(0x02);
+  76   3              ackcheck();
+  77   3              write(y);
+  78   3              ackcheck();
+  79   3              stop();
+  80   3              lcdcmd(0x01);
+  81   3              lcdcmd(0x0c);
+  82   3              lcdcmd(0x80);
+  83   3              lcddisplay("THANK YOU");
+  84   3              description();
+  85   3            }
+  86   2          if(s3==0)
+  87   2            {
+  88   3              led = 1;
+  89   3              lcdcmd(0x01);
+  90   3              lcdcmd(0x0c);
+  91   3              lcdcmd(0xd4);
+  92   3              lcddisplay("PARTY     $        3");
+  93   3              z=z+1;
+  94   3              led=0;
+  95   3              start();
+  96   3              write(0xA0);
+  97   3              ackcheck();
+  98   3              write(0x06);
+  99   3              ackcheck();
+ 100   3              write(0x03);
+ 101   3              ackcheck();
+ 102   3              write(z);
+ 103   3              ackcheck();
+ 104   3              stop();
+ 105   3              lcdcmd(0x01);
+ 106   3              lcdcmd(0x0c);
+ 107   3              lcdcmd(0x80);
+ 108   3              lcddisplay("THANK YOU");
+ 109   3              description();
+ 110   3            }
+ 111   2            if(s4==0)
+ 112   2            {
+ 113   3              lcdcmd(0x01);
+ 114   3              lcdcmd(0x0c);
+ 115   3              lcdcmd(0x80);
+ 116   3              lcddisplay("STATISTICS");
+ 117   3              lcdcmd(0xc0);
+C51 COMPILER V9.52.0.0   PROJECT2                                                          02/23/2024 12:52:04 PAGE 3   
+
+ 118   3              lcdcmd(0x0c);
+ 119   3              lcddisplay("@         :       ");
+ 120   3              lcdcmd(0xd2);
+ 121   3              lcdconv(x);
+ 122   3              lcdcmd(0x94);
+ 123   3              lcddisplay("#         :       ");
+ 124   3              lcdcmd(0xa6);
+ 125   3              lcdconv(y);
+ 126   3              lcdcmd(0xd4);
+ 127   3              lcddisplay("$         :       ");
+ 128   3              lcdcmd(0xe6);
+ 129   3              lcdconv(z);
+ 130   3            }
+ 131   2        }
+ 132   1      }
+ 133          void lcddata(unsigned char dat)
+ 134          {
+ 135   1        P2 = dat;
+ 136   1        rs = 1;
+ 137   1        rw = 0;
+ 138   1        en = 1;
+ 139   1        delay();
+ 140   1        en = 0;
+ 141   1      }
+ 142          void lcdcmd(unsigned char val)
+ 143          {
+ 144   1        P2 = val;
+ 145   1        rs = 0;
+ 146   1        rw=0;
+ 147   1        en = 1;
+ 148   1        delay();
+ 149   1        en = 0;
+ 150   1      }
+ 151          void lcddisplay(char *c)
+ 152          {
+ 153   1        while( *c!= '\0')
+ 154   1        {
+ 155   2          lcddata(*c);
+ 156   2          c++;
+ 157   2        }
+ 158   1      }
+ 159          void description()
+ 160          {
+ 161   1        lcdcmd(0x38);//activate all crystals
+ 162   1        lcdcmd(0x01);//clear screen
+ 163   1        lcdcmd(0x06);//forward increment
+ 164   1        lcdcmd(0x0c);//cursor on and blinking
+ 165   1        lcddisplay("WELCOME");
+ 166   1        lcdcmd(0x01);//clear screen
+ 167   1        lcddisplay("ELECTRONIC VOTING...");
+ 168   1        lcdcmd(0x01);//clear screen
+ 169   1        lcdcmd(0x80);//shift cursor to the right position
+ 170   1        lcddisplay("REGISTER FINGERPRINT");
+ 171   1        lcdcmd(0x01);//clear screen
+ 172   1        lcdcmd(0x80);//shift cursor to the right position
+ 173   1        lcddisplay("REGISTRATION SUCESS");
+ 174   1        lcdcmd(0x01);
+ 175   1        lcdcmd(0x80);//shift cursor to the right position
+ 176   1        lcddisplay("SELECT TO VOTE");
+ 177   1        lcdcmd(0xc0);
+ 178   1        lcdcmd(0x0c);
+ 179   1        lcddisplay("PARTY     @        1");
+C51 COMPILER V9.52.0.0   PROJECT2                                                          02/23/2024 12:52:04 PAGE 4   
+
+ 180   1        lcdcmd(0x94);
+ 181   1        lcddisplay("PARTY     #        2");
+ 182   1        lcdcmd(0xd4);
+ 183   1        lcddisplay("PARTY     $        3");
+ 184   1      }
+ 185          void lcdconv(unsigned char num)
+ 186          {
+ 187   1        unsigned char q,w;
+ 188   1        q=num/10;
+ 189   1        w=num%10;
+ 190   1        q=q+0x30;
+ 191   1        w=w+0x30;
+ 192   1        lcddata(q);
+ 193   1        lcddata(w);
+ 194   1      }
+ 195          void start()
+ 196          {
+ 197   1        scl=1;
+ 198   1        sda=1;
+ 199   1        nop();
+*** WARNING C206 IN LINE 199 OF project2.c: 'nop': missing function-prototype
+ 200   1        nop();
+ 201   1        sda=0;
+ 202   1        scl=0;
+ 203   1      }
+ 204          void write(unsigned char val)
+ 205          {
+ 206   1        unsigned char v1,v2;
+ 207   1        v1=val;
+ 208   1        for(v2=0;v2<8;v2++)
+ 209   1        {
+ 210   2          sda=v1&0x80;
+ 211   2          scl=1;
+ 212   2          nop();
+ 213   2          nop();
+ 214   2          scl=0;
+ 215   2          v1=v1<<1;
+ 216   2        }
+ 217   1      }
+ 218          void ackcheck()
+ 219          {
+ 220   1        bit c;
+ 221   1        sda=1;
+ 222   1        c=sda;
+ 223   1        scl=1;
+ 224   1        nop();
+ 225   1        nop();
+ 226   1        scl=0;
+ 227   1      if(c==1)
+ 228   1      {
+ 229   2        stop();
+ 230   2        while(1);
+ 231   2      }
+ 232   1      }
+ 233          void stop()
+ 234          {
+ 235   1        scl=1;
+ 236   1        sda=0;
+ 237   1        nop();
+ 238   1        nop();
+ 239   1        sda=1;
+ 240   1        scl=0;
+C51 COMPILER V9.52.0.0   PROJECT2                                                          02/23/2024 12:52:04 PAGE 5   
+
+ 241   1      }
+ 242          void delay()
+ 243          {
+ 244   1        int i;
+ 245   1        for(i=0;i<=10000;i++);
+ 246   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    750    ----
+   CONSTANT SIZE    =    226    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

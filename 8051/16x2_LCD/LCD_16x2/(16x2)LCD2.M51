@@ -1,0 +1,128 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/18/2023  09:35:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE (16x2)LCD2.obj TO (16x2)LCD2
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  (16x2)LCD2.obj (_16X2_LCD2)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  (16x2)LCD2 (_16X2_LCD2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0057H     UNIT         ?PR?MAIN?_16X2_LCD2
+            CODE    0857H     0017H     UNIT         ?PR?_LCDCMD?_16X2_LCD2
+            CODE    086EH     0017H     UNIT         ?PR?_LCDDATA?_16X2_LCD2
+            CODE    0885H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   (16x2)LCD2 (_16X2_LCD2)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?_16X2_LCD2
+
+?PR?MAIN?_16X2_LCD2
+  +--> ?PR?_LCDCMD?_16X2_LCD2
+  +--> ?PR?_LCDDATA?_16X2_LCD2
+
+
+
+SYMBOL TABLE OF MODULE:  (16x2)LCD2 (_16X2_LCD2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        _16X2_LCD2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        main
+  C:086EH         PUBLIC        _lcddata
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/18/2023  09:35:33  PAGE 2
+
+
+  B:00B0H.7       PUBLIC        en
+  B:00B0H.6       PUBLIC        rs
+  C:0857H         PUBLIC        _lcdcmd
+  -------         PROC          MAIN
+  C:0800H         LINE#         10
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0805H         LINE#         13
+  C:080AH         LINE#         14
+  C:080FH         LINE#         15
+  C:0814H         LINE#         17
+  C:0819H         LINE#         18
+  C:081EH         LINE#         19
+  C:0823H         LINE#         20
+  C:0828H         LINE#         21
+  C:082DH         LINE#         22
+  C:0832H         LINE#         23
+  C:0837H         LINE#         24
+  C:083CH         LINE#         28
+  C:0841H         LINE#         29
+  C:0846H         LINE#         30
+  C:084BH         LINE#         31
+  C:0850H         LINE#         32
+  C:0855H         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCDCMD
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0857H         LINE#         41
+  C:0857H         LINE#         42
+  C:0857H         LINE#         44
+  C:0859H         LINE#         45
+  C:085BH         LINE#         46
+  C:085DH         LINE#         47
+  C:0860H         LINE#         48
+  C:086DH         LINE#         49
+  -------         ENDPROC       _LCDCMD
+  -------         PROC          _LCDDATA
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:086EH         LINE#         51
+  C:086EH         LINE#         52
+  C:086EH         LINE#         54
+  C:0870H         LINE#         55
+  C:0872H         LINE#         56
+  C:0874H         LINE#         57
+  C:0877H         LINE#         58
+  C:0884H         LINE#         59
+  -------         ENDPROC       _LCDDATA
+  -------         ENDMOD        _16X2_LCD2
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0085H BYTE ( 6%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/18/2023  09:35:33  PAGE 3
+
+
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=148
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

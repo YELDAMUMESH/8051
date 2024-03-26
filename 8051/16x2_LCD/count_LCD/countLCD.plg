@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Keil\C51\Examples\HELLO\countLCD.uvproj
+Project File Date:  12/18/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling countLCD.c...
+countLCD.c(37): warning C275: expression with possibly no effect
+countLCD.c(39): warning C290: missing return value
+countLCD.c(58): warning C290: missing return value
+countLCD.c(68): warning C290: missing return value
+countLCD.c(76): warning C290: missing return value
+linking...
+Program Size: data=14.0 xdata=0 code=419
+creating hex file from "countLCD"...
+"countLCD" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling countLCD.c...
+countLCD.c(37): warning C275: expression with possibly no effect
+countLCD.c(39): warning C290: missing return value
+countLCD.c(58): warning C290: missing return value
+countLCD.c(68): warning C290: missing return value
+countLCD.c(76): warning C290: missing return value
+linking...
+Program Size: data=14.0 xdata=0 code=419
+creating hex file from "countLCD"...
+"countLCD" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling countLCD.c...
+countLCD.c(37): warning C275: expression with possibly no effect
+countLCD.c(39): warning C290: missing return value
+countLCD.c(58): warning C290: missing return value
+countLCD.c(68): warning C290: missing return value
+countLCD.c(76): warning C290: missing return value
+linking...
+Program Size: data=14.0 xdata=0 code=419
+creating hex file from "countLCD"...
+"countLCD" - 0 Error(s), 5 Warning(s).

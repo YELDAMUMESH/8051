@@ -1,0 +1,46 @@
+C51 COMPILER V9.52.0.0   BLINKING2                                                         12/08/2023 09:03:42 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BLINKING2
+OBJECT MODULE PLACED IN blinking2.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE blinking2.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          int i,j;
+   3          void delay(unsigned int t)
+   4          {
+   5   1        for(i=0;i<t;i++)
+   6   1        for(j=0;j<1000;j++);
+   7   1      }
+   8          sbit led1=P1^0;
+   9          sbit led2=P1^1;
+  10          void main()
+  11          {
+  12   1        int i;
+  13   1        while(1)
+  14   1        {
+  15   2          led1=1;
+  16   2          led2=0;
+  17   2          delay(100);
+  18   2          led1=0;
+  19   2          led2=1;
+  20   2          delay(100);
+  21   2        }
+  22   1      } 
+*** WARNING C280 IN LINE 12 OF blinking2.c: 'i': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,45 @@
+C51 COMPILER V9.52.0.0   TIMERSTRING                                                       01/03/2024 09:52:58 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMERSTRING
+OBJECT MODULE PLACED IN timerstring.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timerstring.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          serialprint(char*);
+   3          void main()
+   4          {
+   5   1        TMOD=0X20;
+   6   1        SCON=0X50;
+   7   1        TH1=0XFD;//for 9600 baud rate
+   8   1        TR1=1;
+   9   1        serialprint("Hello");
+  10   1      }
+  11          serialprint(char *str)
+  12          {
+  13   1        while(*str!='\0')
+  14   1        {
+  15   2          SBUF=*str;
+  16   2          while(TI==0);
+  17   2          TI=0;
+  18   2          *str++;
+*** WARNING C275 IN LINE 18 OF timerstring.c: expression with possibly no effect
+  19   2        }
+  20   1      } 
+*** WARNING C290 IN LINE 20 OF timerstring.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     43    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

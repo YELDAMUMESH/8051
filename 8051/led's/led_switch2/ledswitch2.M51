@@ -1,0 +1,82 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/05/2023  13:17:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE led12.obj TO ledswitch2
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  led12.obj (LED12)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  ledswitch2 (LED12)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0027H     UNIT         ?PR?MAIN?LED12
+            CODE    0827H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   ledswitch2 (LED12)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED12
+
+
+
+SYMBOL TABLE OF MODULE:  ledswitch2 (LED12)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED12
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0800H         PUBLIC        main
+  B:0090H.5       PUBLIC        led
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         3
+  C:0800H         LINE#         4
+  C:0800H         LINE#         6
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/05/2023  13:17:29  PAGE 2
+
+
+  C:0800H         LINE#         7
+  C:0800H         LINE#         8
+  C:0802H         LINE#         9
+  C:0805H         LINE#         10
+  C:0805H         LINE#         12
+  C:0810H         LINE#         13
+  C:0812H         LINE#         14
+  C:0820H         LINE#         15
+  C:0820H         LINE#         17
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED12
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0027H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=54
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

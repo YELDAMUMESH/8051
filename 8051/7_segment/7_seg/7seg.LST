@@ -1,0 +1,41 @@
+C51 COMPILER V9.52.0.0   7SEG                                                              12/12/2023 13:41:26 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 7SEG
+OBJECT MODULE PLACED IN 7seg.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 7seg.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          int main()
+   3          {
+   4   1        int i;
+   5   1      while(1)
+   6   1      P2=0X06;
+   7   1      for(i=0;i<200;i++);
+   8   1      P2=0X5B;
+   9   1      for(i=0;i<200;i++);
+  10   1      P2=0X4F;
+  11   1      for(i=0;i<200;i++);
+  12   1      P2=0X66;
+  13   1      for(i=0;i<200;i++);
+  14   1      P2=0X6D;
+  15   1      for(i=0;i<200;i++);
+  16   1      }
+  17          
+*** WARNING C294 IN LINE 7 OF 7seg.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      5    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

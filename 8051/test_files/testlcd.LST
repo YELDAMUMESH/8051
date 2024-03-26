@@ -1,0 +1,218 @@
+C51 COMPILER V9.52.0.0   TESTLCD                                                           12/12/2023 21:11:21 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TESTLCD
+OBJECT MODULE PLACED IN testlcd.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE testlcd.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit Registerselect = P3^6;
+   3          sbit Enable = P3^7;
+   4          //data pins connected to the p2
+   5          void main()
+   6          {
+   7   1        int i;
+   8   1        P2 = 0x38;
+   9   1        Registerselect = 0;
+  10   1        Enable = 1;
+  11   1        for(i=0;i<5000;i++);
+  12   1        Enable=0;
+  13   1        P2=0x0C;
+  14   1        Registerselect=0;
+  15   1        Enable=1;
+  16   1        for(i=0;i<5000;i++);
+  17   1        Enable = 0;
+  18   1        
+  19   1        P2=0x06;
+  20   1        Registerselect=0;
+  21   1        Enable = 1;
+  22   1        for(i=0;i<5000;i++);
+  23   1        Enable = 0;
+  24   1        
+  25   1        P2=0x01;
+  26   1        Registerselect=0;
+  27   1        Enable = 1;
+  28   1        for(i=0;i<5000;i++);
+  29   1        Enable = 0;
+  30   1        
+  31   1        P2='P';
+  32   1        Registerselect=1;
+  33   1        Enable = 1;
+  34   1        for(i=0;i<5000;i++);
+  35   1        Enable = 0;
+  36   1        
+  37   1        P2='O';
+  38   1        Registerselect=1;
+  39   1        Enable = 1;
+  40   1        for(i=0;i<5000;i++);
+  41   1        Enable = 0;
+  42   1        
+  43   1        P2='T';
+  44   1        Registerselect=1;
+  45   1        Enable = 1;
+  46   1        for(i=0;i<5000;i++);
+  47   1        Enable=0;
+  48   1        
+  49   1        P2='T';
+  50   1        Registerselect=1;
+  51   1        Enable = 1;
+  52   1        for(i=0;i<5000;i++);
+  53   1        Enable=0;
+  54   1        
+  55   1        P2='I';
+C51 COMPILER V9.52.0.0   TESTLCD                                                           12/12/2023 21:11:21 PAGE 2   
+
+  56   1        Registerselect=1;
+  57   1        Enable = 1;
+  58   1        for(i=0;i<5000;i++);
+  59   1        Enable=0;
+  60   1        
+  61   1        P2=' ';
+  62   1        Registerselect=1;
+  63   1        Enable = 1;
+  64   1        for(i=0;i<5000;i++);
+  65   1        Enable=0;
+  66   1        
+  67   1        P2='F';
+  68   1        Registerselect=1;
+  69   1        Enable = 1;
+  70   1        for(i=0;i<5000;i++);
+  71   1        Enable=0;
+  72   1        
+  73   1        P2='E';
+  74   1        Registerselect=1;
+  75   1        Enable = 1;
+  76   1        for(i=0;i<5000;i++);
+  77   1        Enable=0;
+  78   1        
+  79   1        P2='L';
+  80   1        Registerselect=1;
+  81   1        Enable = 1;
+  82   1        for(i=0;i<5000;i++);
+  83   1        Enable=0;
+  84   1        
+  85   1      
+  86   1        
+  87   1        P2='L';
+  88   1        Registerselect=1;
+  89   1        Enable = 1;
+  90   1        for(i=0;i<5000;i++);
+  91   1        Enable=0;
+  92   1        
+  93   1        P2='O';
+  94   1        Registerselect=1;
+  95   1        Enable = 1;
+  96   1        for(i=0;i<5000;i++);
+  97   1        Enable=0;
+  98   1        
+  99   1        P2='W';
+ 100   1        Registerselect=1;
+ 101   1        Enable = 1;
+ 102   1        for(i=0;i<5000;i++);
+ 103   1        Enable=0;
+ 104   1      
+ 105   1        P2=0xC0;
+ 106   1        Registerselect=0;
+ 107   1        Enable = 1;
+ 108   1        for(i=0;i<5000;i++);
+ 109   1        Enable=0;
+ 110   1        
+ 111   1        P2='P';
+ 112   1        Registerselect=1;
+ 113   1        Enable = 1;
+ 114   1        for(i=0;i<5000;i++);
+ 115   1        Enable=0;
+ 116   1        
+ 117   1        P2='A';
+C51 COMPILER V9.52.0.0   TESTLCD                                                           12/12/2023 21:11:21 PAGE 3   
+
+ 118   1        Registerselect=1;
+ 119   1        Enable = 1;
+ 120   1        for(i=0;i<5000;i++);
+ 121   1        Enable=0;
+ 122   1        
+ 123   1        P2='N';
+ 124   1        Registerselect=1;
+ 125   1        Enable = 1;
+ 126   1        for(i=0;i<5000;i++);
+ 127   1        Enable=0;
+ 128   1        
+ 129   1        P2='D';
+ 130   1        Registerselect=1;
+ 131   1        Enable = 1;
+ 132   1        for(i=0;i<5000;i++);
+ 133   1        Enable=0;
+ 134   1        
+ 135   1        P2='H';
+ 136   1        Registerselect=1;
+ 137   1        Enable = 1;
+ 138   1        for(i=0;i<5000;i++);
+ 139   1        Enable=0;
+ 140   1        
+ 141   1        P2='I';
+ 142   1        Registerselect=1;
+ 143   1        Enable = 1;
+ 144   1        for(i=0;i<5000;i++);
+ 145   1        Enable=0;
+ 146   1        
+ 147   1        P2=' ';
+ 148   1        Registerselect=1;
+ 149   1        Enable = 1;
+ 150   1        for(i=0;i<5000;i++);
+ 151   1        Enable=0;
+ 152   1        
+ 153   1        P2='F';
+ 154   1        Registerselect=1;
+ 155   1        Enable = 1;
+ 156   1        for(i=0;i<5000;i++);
+ 157   1        Enable=0;
+ 158   1        
+ 159   1        P2='E';
+ 160   1        Registerselect=1;
+ 161   1        Enable = 1;
+ 162   1        for(i=0;i<5000;i++);
+ 163   1        Enable=0;
+ 164   1        
+ 165   1        P2='L';
+ 166   1        Registerselect=1;
+ 167   1        Enable = 1;
+ 168   1        for(i=0;i<5000;i++);
+ 169   1        Enable=0;
+ 170   1        
+ 171   1        P2='L';
+ 172   1        Registerselect=1;
+ 173   1        Enable = 1;
+ 174   1        for(i=0;i<5000;i++);
+ 175   1        Enable=0;
+ 176   1        
+ 177   1        P2='O';
+ 178   1        Registerselect=1;
+ 179   1        Enable = 1;
+C51 COMPILER V9.52.0.0   TESTLCD                                                           12/12/2023 21:11:21 PAGE 4   
+
+ 180   1        for(i=0;i<5000;i++);
+ 181   1        Enable=0;
+ 182   1        
+ 183   1        P2='W';
+ 184   1        Registerselect=1;
+ 185   1        Enable = 1;
+ 186   1        for(i=0;i<5000;i++);
+ 187   1        Enable=0;
+ 188   1        
+ 189   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    691    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

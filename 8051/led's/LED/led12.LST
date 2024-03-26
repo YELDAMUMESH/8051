@@ -1,0 +1,46 @@
+C51 COMPILER V9.52.0.0   LED12                                                             12/04/2023 13:04:34 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED12
+OBJECT MODULE PLACED IN led12.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE led12.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit led=P1^5;
+   3          void main()
+   4          {
+   5   1        int i;
+   6   1        while(1)
+   7   1        {
+   8   2          led =1;
+   9   2          for(i=0;i<5000;i++)
+  10   2          {
+  11   3            ;
+  12   3          }
+  13   2          led=0;
+  14   2          for(i=0;i<5000;i++)
+  15   2          {
+  16   3            ;
+  17   3          }
+  18   2        }
+  19   1        
+  20   1      }
+  21          
+  22              
+  23            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     39    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

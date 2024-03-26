@@ -1,0 +1,107 @@
+C51 COMPILER V9.52.0.0   COUNTLCD                                                          12/19/2023 08:49:47 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE COUNTLCD
+OBJECT MODULE PLACED IN countLCD.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE countLCD.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          sbit rs=P3^6;
+   3          sbit en=P3^7;
+   4          //data pins connected to the P2
+   5          lcdcmd(char);
+   6          lcddata(char);
+   7          lcdprint(char *);
+   8          delay(int);
+   9          //char x[10]="hello world";
+  10          
+  11          void main()
+  12          {
+  13   1        int count;
+  14   1        lcdcmd(0x38);
+  15   1        lcdcmd(0x0c);
+  16   1        lcdcmd(0x06);
+  17   1        lcdcmd(0x01);
+  18   1        lcdcmd(0x80);
+  19   1        
+  20   1        delay(100);
+  21   1        lcdcmd(0x01);
+  22   1        lcdprint("count :");
+  23   1        for(count=0;count<100;count++)
+  24   1        {
+  25   2          lcdcmd(0x88);
+  26   2          lcddata(count/10+48);
+  27   2          lcddata(count%10+48);
+  28   2        }
+  29   1        while(1);
+  30   1      }
+  31            
+  32            lcdprint(char *c)
+  33          {
+  34   1        while(*c!='\0')
+  35   1        {
+  36   2          lcddata(*c);
+  37   2          *c++;
+*** WARNING C275 IN LINE 37 OF countLCD.c: expression with possibly no effect
+  38   2        }
+  39   1      }
+  40            
+  41            
+  42            
+  43            
+  44            
+  45            
+  46            
+  47            
+  48            
+  49            
+  50            lcdcmd(char x)
+  51          {
+  52   1        int i;
+  53   1        P2=x;
+  54   1        rs=0;
+C51 COMPILER V9.52.0.0   COUNTLCD                                                          12/19/2023 08:49:47 PAGE 2   
+
+  55   1        en=1;
+  56   1        for(i=0;i<5000;i++)
+  57   1        en=0;
+  58   1      }
+  59          
+  60          lcddata(char x)
+  61          {
+  62   1        int i;
+  63   1        P2=x;
+  64   1        rs=1;
+  65   1        en=1;
+  66   1        for(i=0;i<5000;i++)
+  67   1        en=0;
+  68   1      }
+  69          
+  70          
+  71          delay(int k)
+  72          {
+  73   1        int i,j;
+  74   1        for(i=0;i<k;i++)
+  75   1        for(j=0;j<1275;j++);
+  76   1      }
+  77            
+*** WARNING C290 IN LINE 39 OF countLCD.c: missing return value
+*** WARNING C290 IN LINE 58 OF countLCD.c: missing return value
+*** WARNING C290 IN LINE 68 OF countLCD.c: missing return value
+*** WARNING C290 IN LINE 76 OF countLCD.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    232    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  5 WARNING(S),  0 ERROR(S)

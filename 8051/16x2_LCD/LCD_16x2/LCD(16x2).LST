@@ -1,0 +1,137 @@
+C51 COMPILER V9.52.0.0   LCD_16X2_                                                         12/11/2023 10:05:30 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD_16X2_
+OBJECT MODULE PLACED IN LCD(16x2).OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE LCD(16x2).c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit Registerselect = P3^6;
+   3          sbit Enable = P3^7;
+   4          //data pins connected to the p2
+   5          void main()
+   6          {
+   7   1        int i;
+   8   1        P2 = 0x38;
+   9   1        Registerselect = 0;
+  10   1        Enable = 1;
+  11   1        for(i=0;i<5000;i++);
+  12   1        Enable=0;
+  13   1        P2=0x0C;
+  14   1        Registerselect=0;
+  15   1        Enable=1;
+  16   1        for(i=0;i<5000;i++);
+  17   1        Enable = 0;
+  18   1        
+  19   1        P2=0x06;
+  20   1        Registerselect=0;
+  21   1        Enable = 1;
+  22   1        for(i=0;i<5000;i++);
+  23   1        Enable = 0;
+  24   1        
+  25   1        P2=0x01;
+  26   1        Registerselect=0;
+  27   1        Enable = 1;
+  28   1        for(i=0;i<5000;i++);
+  29   1        Enable = 0;
+  30   1        
+  31   1        P2='N';
+  32   1        Registerselect=1;
+  33   1        Enable = 1;
+  34   1        for(i=0;i<5000;i++);
+  35   1        Enable = 0;
+  36   1        
+  37   1        P2='A';
+  38   1        Registerselect=1;
+  39   1        Enable = 1;
+  40   1        for(i=0;i<5000;i++);
+  41   1        Enable = 0;
+  42   1        
+  43   1        P2='M';
+  44   1        Registerselect=1;
+  45   1        Enable = 1;
+  46   1        for(i=0;i<5000;i++);
+  47   1        Enable=0;
+  48   1        
+  49   1        P2='A';
+  50   1        Registerselect=1;
+  51   1        Enable = 1;
+  52   1        for(i=0;i<5000;i++);
+  53   1        Enable=0;
+  54   1        
+  55   1        P2='S';
+C51 COMPILER V9.52.0.0   LCD_16X2_                                                         12/11/2023 10:05:30 PAGE 2   
+
+  56   1        Registerselect=1;
+  57   1        Enable = 1;
+  58   1        for(i=0;i<5000;i++);
+  59   1        Enable=0;
+  60   1        
+  61   1        P2='T';
+  62   1        Registerselect=1;
+  63   1        Enable = 1;
+  64   1        for(i=0;i<5000;i++);
+  65   1        Enable=0;
+  66   1        
+  67   1        P2='H';
+  68   1        Registerselect=1;
+  69   1        Enable = 1;
+  70   1        for(i=0;i<5000;i++);
+  71   1        Enable=0;
+  72   1        
+  73   1        P2='E';
+  74   1        Registerselect=1;
+  75   1        Enable = 1;
+  76   1        for(i=0;i<5000;i++);
+  77   1        Enable=0;
+  78   1        
+  79   1        P2=0xC0;
+  80   1        Registerselect=0;
+  81   1        Enable = 1;
+  82   1        for(i=0;i<5000;i++);
+  83   1        Enable=0;
+  84   1        
+  85   1        P2='B';
+  86   1        Registerselect=1;
+  87   1        Enable = 1;
+  88   1        for(i=0;i<5000;i++);
+  89   1        Enable=0;
+  90   1        
+  91   1        P2='H';
+  92   1        Registerselect=1;
+  93   1        Enable = 1;
+  94   1        for(i=0;i<5000;i++);
+  95   1        Enable=0;
+  96   1        
+  97   1        P2='A';
+  98   1        Registerselect=1;
+  99   1        Enable = 1;
+ 100   1        for(i=0;i<5000;i++);
+ 101   1        Enable=0;
+ 102   1        
+ 103   1        P2='I';
+ 104   1        Registerselect=1;
+ 105   1        Enable = 1;
+ 106   1        for(i=0;i<5000;i++);
+ 107   1        Enable=0;
+ 108   1        
+ 109   1        
+ 110   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    392    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   LCD_16X2_                                                         12/11/2023 10:05:30 PAGE 3   
+
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

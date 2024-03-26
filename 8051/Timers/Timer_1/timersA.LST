@@ -1,0 +1,37 @@
+C51 COMPILER V9.52.0.0   TIMERSA                                                           01/03/2024 09:22:11 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMERSA
+OBJECT MODULE PLACED IN timersA.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE timersA.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void main()
+   3          {
+   4   1        TMOD=0X20;
+   5   1        SCON=0X50;
+   6   1        TH1=0XFD;
+   7   1        TR1=1;
+   8   1        while(1)
+   9   1        {
+  10   2          SBUF='A';
+  11   2          while(TI==0);
+  12   2          TI=0;
+  13   2        }
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     21    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

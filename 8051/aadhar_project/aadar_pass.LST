@@ -1,0 +1,196 @@
+C51 COMPILER V9.52.0.0   AADAR_PASS                                                        02/02/2024 10:37:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE AADAR_PASS
+OBJECT MODULE PLACED IN aadar_pass.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE aadar_pass.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit gled=P1^0;
+   3          sbit rled=P1^1;
+   4          sbit rs=P1^2;
+   5          sbit rw=P1^3;
+   6          sbit en=P1^4;
+   7          //lcd control pins
+   8          int i;
+   9          void lcdcmd(unsigned char x);
+  10          void lcddata(unsigned char x);
+  11          delay(int);
+  12          void lcddisplay(unsigned char *x);
+  13          unsigned char inputaadhar[12],v1;
+  14          int compare(const char *aadhar1,const char *aadhar2);
+  15          
+  16          
+  17          void main()
+  18          {
+  19   1        int result;
+  20   1        char *aadharnum1 = "59905285739";
+  21   1        char *aadharnum2 = "64909630176";
+  22   1        char *aadharnum3 = "12345678910";
+  23   1        lcdcmd(0x38);
+  24   1        lcdcmd(0x0c);
+  25   1        lcdcmd(0x06);
+  26   1        lcdcmd(0x0F);
+  27   1        lcdcmd(0x80);
+  28   1        lcddisplay("enter aadhar no");
+  29   1        lcdcmd(0xC0);
+  30   1        SCON=0x50;
+  31   1        TMOD=0x20;
+  32   1        TH1= -3;
+  33   1        TR1=1;
+  34   1        gled=rled=0;
+  35   1        while(1)
+  36   1        {
+  37   2          for(v1=0;v1<12;v1++)
+  38   2          {
+  39   3            while(RI==0);
+  40   3            inputaadhar[v1]=SBUF;
+  41   3            RI=0;
+  42   3            lcddata(inputaadhar[v1]);
+  43   3          }
+  44   2           for ( i = 0; i < 12; i++) {
+  45   3              if (inputaadhar[i] == aadharnum1[i])
+  46   3                
+  47   3          {
+  48   4            gled=1;
+  49   4            rled=0;
+  50   4            lcdcmd(0x01);
+  51   4            lcddisplay("mubin");
+  52   4            delay(1000);
+  53   4            lcdcmd(0xC0);
+  54   4            lcddisplay("17/04/2000");
+  55   4              delay(1000);
+C51 COMPILER V9.52.0.0   AADAR_PASS                                                        02/02/2024 10:37:05 PAGE 2   
+
+  56   4            lcdcmd(0x01);
+  57   4            lcddisplay("6304631028");
+  58   4              delay(1000);
+  59   4            lcdcmd(0xC0);
+  60   4            lcddisplay("mubin@...");
+  61   4              delay(1000);
+  62   4            lcdcmd(0x01);
+  63   4          }
+  64   3        else{
+  65   4            lcdcmd(0x01);
+  66   4            lcddisplay("invalid");
+  67   4          }
+  68   3          
+  69   3          
+  70   3          
+  71   3          for ( i = 0; i < 12; i++) {
+  72   4              if (inputaadhar[i] == aadharnum2[i]) 
+  73   4              {
+  74   5            gled=1;
+  75   5            rled=0;
+  76   5            lcddisplay("umesh");
+  77   5            delay(1000);
+  78   5            lcdcmd(0x01);
+  79   5            lcddisplay("06/10/2001");
+  80   5            delay(1000);
+  81   5            lcdcmd(0xC0);
+  82   5            lcddisplay("8520897985");
+  83   5            delay(1000);
+  84   5            lcdcmd(0x01);
+  85   5            lcdcmd(0xC0);
+  86   5            lcddisplay("umesh@...");
+  87   5            delay(1000);
+  88   5            lcdcmd(0x01);
+  89   5          }
+  90   4          
+  91   4        else{
+  92   5            lcdcmd(0x01);
+  93   5            lcddisplay("invalid");
+  94   5          }
+  95   4          
+  96   4          
+  97   4      for ( i = 0; i < 12; i++) {
+  98   5              if (inputaadhar[i] == aadharnum3[i]) {
+  99   6               
+ 100   6            gled=1;
+ 101   6            rled=0;
+ 102   6            lcddisplay("akhil");
+ 103   6            delay(1000);
+ 104   6            lcdcmd(0xC0);
+ 105   6            lcddisplay("06/11/2002");
+ 106   6            delay(1000);
+ 107   6            lcdcmd(0x01);
+ 108   6            lcddisplay("8520897565");
+ 109   6            delay(1000);
+ 110   6            lcdcmd(0xC0);
+ 111   6            lcddisplay("akhil@...");
+ 112   6            delay(1000);
+ 113   6            lcdcmd(0x01);
+ 114   6          }
+ 115   5          
+ 116   5          else{
+ 117   6            lcdcmd(0x01);
+C51 COMPILER V9.52.0.0   AADAR_PASS                                                        02/02/2024 10:37:05 PAGE 3   
+
+ 118   6            lcddisplay("invalid");
+ 119   6          }
+ 120   5          
+ 121   5            
+ 122   5          
+ 123   5          
+ 124   5        }
+ 125   4      }
+ 126   3      void lcdcmd(unsigned char x)
+*** ERROR C141 IN LINE 126 OF aadar_pass.c: syntax error near 'void'
+ 127   3      {
+ 128   3        int i;
+ 129   3        P2=x;
+ 130   3        rs=0;
+ 131   3        rw=0;
+ 132   3        en=1;
+ 133   3        for(i=0;i<500;i++);
+ 134   3        en=0;
+ 135   3      }
+ 136   2      void lcddisplay(unsigned char *s)
+ 137   2      {
+ 138   2        unsigned char w;
+ 139   2        for(w=0;s[w]!='\0';w++)
+ 140   2        {
+ 141   3          lcddata(s[w]);
+ 142   3        }
+ 143   2      }
+ 144   1      void lcddata(unsigned char dat)
+ 145   1      {
+ 146   1        int i;
+ 147   1        P2=dat;
+ 148   1        rs=1;
+ 149   1        rw=0;
+ 150   1        en=1;
+ 151   1        for(i=0;i<500;i++);
+ 152   1        en=0;
+ 153   1      }
+ 154          delay (int k)
+ 155          {
+ 156   1        int i,j;
+ 157   1        for(i=0;i<k;i++)
+ 158   1        for(j=0;j<1275;j++);
+ 159   1      }
+ 160          
+ 161          // Function to compare two Aadhar numbers
+ 162          int compare(const char *aadhar1, const char *aadhar2) {
+ 163   1          // Assuming Aadhar numbers are 12-digit integers
+ 164   1          for ( i = 0; i < 12; i++) {
+ 165   2              if (aadhar1[i] == aadhar2[i]) {
+ 166   3                  return 0; 
+ 167   3              }         
+ 168   2              else 
+ 169   2              {
+ 170   3                return -1;
+ 171   3              }// aadhar1 > aadhar2
+ 172   2              } // aadhar1 == aadhar2
+ 173   1      }
+ 174          
+ 175            
+ 176                
+ 177          
+ 178          
+C51 COMPILER V9.52.0.0   AADAR_PASS                                                        02/02/2024 10:37:05 PAGE 4   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

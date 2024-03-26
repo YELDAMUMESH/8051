@@ -1,0 +1,142 @@
+C51 COMPILER V9.52.0.0   AADHAR                                                            02/02/2024 11:16:13 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE AADHAR
+OBJECT MODULE PLACED IN aadhar.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE aadhar.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include <stdlib.h>
+   3          #include<string.h>
+   4          sbit rs = P1^2;
+   5          sbit rw = P1^3;
+   6          sbit en = P1^4;
+   7          void lcdcmd(unsigned char x);
+   8          void lcddat(unsigned char x);
+   9          void lcddis(unsigned char *x);
+  10          const char a1[12] ={"215630158024"};
+  11          const char a2[12] ={"123456789101"};
+  12          const char a3[12] ={"101987654321"};
+  13          char a[12];
+  14          unsigned char v1,v2;
+  15          void main()
+  16          {
+  17   1        lcdcmd(0x38); // Initialization of 16X2 LCD in 8bit mode 
+  18   1        lcdcmd(0x0c); //Display ON Cursor OFF 
+  19   1        lcdcmd(0x06); //Auto Increment cursor 
+  20   1        lcdcmd(0x0F); 
+  21   1        lcdcmd(0x80);
+  22   1        lcddis("ENTER AADHAR NO:");
+  23   1        lcdcmd(0xc0);
+  24   1        SCON = 0X50;
+  25   1        TMOD = 0X20;
+  26   1        TH1  = -3;
+  27   1        TR1  = 1;
+  28   1        while(1)
+  29   1        { 
+  30   2          for(v1=0;v1<12;v1++)
+  31   2          {
+  32   3            while(RI==0);
+  33   3            a[v1]=SBUF;
+  34   3            v2 = SBUF;
+  35   3            SBUF = v2;
+  36   3            while(TI==0);
+  37   3            TI = 0;
+  38   3            RI = 0;
+  39   3            lcddat(a[v1]);
+  40   3          }
+  41   2        if(strcmp(a1,a)==0)
+  42   2          {
+  43   3            lcdcmd(0x01);
+  44   3            lcdcmd(0x80);
+  45   3            lcddis("nynita");
+  46   3            lcdcmd(0xc0);
+  47   3            lcddis("D.O.B : 27/11/2001");
+  48   3            lcdcmd(0x94);
+  49   3            lcddis("8888444412");
+  50   3            lcdcmd(0xd4);
+  51   3            lcddis("Female");
+  52   3          }
+  53   2         else if(strcmp(a2,a)==0)
+  54   2          {
+  55   3            lcdcmd(0x01);
+C51 COMPILER V9.52.0.0   AADHAR                                                            02/02/2024 11:16:13 PAGE 2   
+
+  56   3            lcdcmd(0x80);
+  57   3            lcddis("RAM");
+  58   3            lcdcmd(0xc0);
+  59   3            lcddis("D.O.B : 7/11/1995");
+  60   3            lcdcmd(0x94);
+  61   3            lcddis("8844441288");
+  62   3            lcdcmd(0xd4);
+  63   3            lcddis("Male");
+  64   3          }
+  65   2         else if(strcmp(a3,a)==0)
+  66   2          {
+  67   3            lcdcmd(0x01);
+  68   3            lcdcmd(0x80);
+  69   3            lcddis("Ramesh");
+  70   3            lcdcmd(0xc0);
+  71   3            lcddis("D.O.B : 20/1/2018");
+  72   3            lcdcmd(0x94);
+  73   3            lcddis("8888441424");
+  74   3            lcdcmd(0xd4);
+  75   3            lcddis("Male");
+  76   3          }
+  77   2          else 
+  78   2          {
+  79   3            lcdcmd(0x01);
+  80   3            //lcdcmd(0x80);
+  81   3            lcddis("Invaild");
+  82   3          }
+  83   2        }
+  84   1      }
+  85          void lcddis(unsigned char *c)
+  86          { 
+  87   1        unsigned char w;
+  88   1        for(w=0;c[w]!='\0';w++)
+  89   1        //while(*c);
+  90   1        {
+  91   2          lcddat(c[w]);
+  92   2          //lcddat(*c++);
+  93   2          //*c++;
+  94   2        }
+  95   1      }
+  96          void lcdcmd(unsigned char x)
+  97          {
+  98   1        int i;
+  99   1        P2 = x;
+ 100   1        rs = 0;
+ 101   1        rw = 0;
+ 102   1        en = 1;
+ 103   1        for(i=0;i<5000;i++);
+ 104   1        en = 0;
+ 105   1      }
+ 106          void lcddat(unsigned char x)
+ 107          {
+ 108   1        int i;
+ 109   1        P2 = x;
+ 110   1        rs = 1;
+ 111   1        rw = 0;
+ 112   1        en = 1;
+ 113   1        for(i=0;i<5000;i++);
+ 114   1        en = 0;
+ 115   1      }
+
+
+C51 COMPILER V9.52.0.0   AADHAR                                                            02/02/2024 11:16:13 PAGE 3   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    436    ----
+   CONSTANT SIZE    =    143    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     50       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,37 @@
+C51 COMPILER V9.52.0.0   SERIAL1                                                           01/24/2024 05:14:35 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SERIAL1
+OBJECT MODULE PLACED IN serial1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE serial1.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void main()
+   3          {
+   4   1        SCON=0X40;
+   5   1        TMOD=0X20;
+   6   1        TH1=-3;
+   7   1        TR1=1;
+   8   1        SBUF='U';
+   9   1      while(TI==0);
+  10   1      TI=0;
+  11   1      RI=0;
+  12   1        while(9);
+  13   1      } 
+  14            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     23    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

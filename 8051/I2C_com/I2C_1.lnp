@@ -1,0 +1,3 @@
+"I2C_1.obj" 
+TO "I2C_1" 
+CODE( 0X0000-0X0FFF )

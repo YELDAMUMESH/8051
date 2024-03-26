@@ -1,0 +1,186 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/27/2024  13:00:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE project1.obj TO project1 CODE (0X0000-0X0FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  project1.obj (PROJECT1)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  project1 (PROJECT1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0099H     UNIT         ?PR?MAIN?PROJECT1
+            CODE    0899H     0094H     UNIT         ?CO?PROJECT1
+            CODE    092DH     0023H     UNIT         ?PR?_LCDDISPLAY?PROJECT1
+            CODE    0950H     0019H     UNIT         ?C?LIB_CODE
+            CODE    0969H     000FH     UNIT         ?PR?DELAY?PROJECT1
+            CODE    0978H     000EH     UNIT         ?PR?_LCDDATA?PROJECT1
+            CODE    0986H     000EH     UNIT         ?PR?_LCDCMD?PROJECT1
+            CODE    0994H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   project1 (PROJECT1)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?PROJECT1
+
+?PR?MAIN?PROJECT1                -----    -----
+  +--> ?PR?_LCDCMD?PROJECT1
+  +--> ?CO?PROJECT1
+  +--> ?PR?_LCDDISPLAY?PROJECT1
+
+?PR?_LCDCMD?PROJECT1             -----    -----
+  +--> ?PR?DELAY?PROJECT1
+
+?PR?_LCDDISPLAY?PROJECT1         0008H    0003H
+  +--> ?PR?_LCDDATA?PROJECT1
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/27/2024  13:00:04  PAGE 2
+
+
+?PR?_LCDDATA?PROJECT1            -----    -----
+  +--> ?PR?DELAY?PROJECT1
+
+
+
+SYMBOL TABLE OF MODULE:  project1 (PROJECT1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROJECT1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0969H         PUBLIC        delay
+  D:00B8H         PUBLIC        IP
+  C:0800H         PUBLIC        main
+  C:092DH         PUBLIC        _lcddisplay
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0978H         PUBLIC        _lcddata
+  B:0090H.2       PUBLIC        en
+  B:0090H.0       PUBLIC        rs
+  D:00C8H         PUBLIC        T2CON
+  B:0090H.1       PUBLIC        rw
+  C:0986H         PUBLIC        _lcdcmd
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0800H         LINE#         10
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0803H         LINE#         13
+  C:0803H         LINE#         14
+  C:0803H         LINE#         15
+  C:0808H         LINE#         16
+  C:080DH         LINE#         17
+  C:0812H         LINE#         18
+  C:0817H         LINE#         19
+  C:0820H         LINE#         20
+  C:0825H         LINE#         21
+  C:082EH         LINE#         22
+  C:0833H         LINE#         23
+  C:0838H         LINE#         24
+  C:0841H         LINE#         25
+  C:0846H         LINE#         26
+  C:084BH         LINE#         27
+  C:0854H         LINE#         28
+  C:0859H         LINE#         29
+  C:085EH         LINE#         30
+  C:0867H         LINE#         31
+  C:086CH         LINE#         32
+  C:0871H         LINE#         33
+  C:087AH         LINE#         34
+  C:087FH         LINE#         35
+  C:0888H         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/27/2024  13:00:04  PAGE 3
+
+
+  C:088DH         LINE#         37
+  C:0896H         LINE#         38
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCDDATA
+  D:0007H         SYMBOL        dat
+  C:0978H         LINE#         40
+  C:0978H         LINE#         41
+  C:0978H         LINE#         42
+  C:097AH         LINE#         43
+  C:097CH         LINE#         44
+  C:097EH         LINE#         45
+  C:0980H         LINE#         46
+  C:0983H         LINE#         47
+  C:0985H         LINE#         48
+  -------         ENDPROC       _LCDDATA
+  -------         PROC          _LCDCMD
+  D:0007H         SYMBOL        val
+  C:0986H         LINE#         49
+  C:0986H         LINE#         50
+  C:0986H         LINE#         51
+  C:0988H         LINE#         52
+  C:098AH         LINE#         53
+  C:098CH         LINE#         54
+  C:098EH         LINE#         55
+  C:0991H         LINE#         56
+  C:0993H         LINE#         57
+  -------         ENDPROC       _LCDCMD
+  -------         PROC          _LCDDISPLAY
+  D:0008H         SYMBOL        c
+  C:092DH         LINE#         58
+  C:0933H         LINE#         59
+  C:0933H         LINE#         60
+  C:093FH         LINE#         61
+  C:093FH         LINE#         62
+  C:0942H         LINE#         63
+  C:094DH         LINE#         64
+  C:094FH         LINE#         65
+  -------         ENDPROC       _LCDDISPLAY
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0969H         LINE#         66
+  C:0969H         LINE#         67
+  C:0969H         LINE#         69
+  C:0977H         LINE#         70
+  -------         ENDPROC       DELAY
+  -------         ENDMOD        PROJECT1
+
+  -------         MODULE        ?C?CLDPTR
+  C:0950H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 017BH BYTE (18%) *
+******************************************************************************
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/27/2024  13:00:04  PAGE 4
+
+
+Program Size: data=12.0 xdata=0 code=419
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
